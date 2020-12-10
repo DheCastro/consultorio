@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Início</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        	
+    	<div th:replace="fragments/alert"></div>
+    	
+    	<div class="card shadow">
+    	
+		    <div class="card-header py-3">
+		        <p class="text-primary m-0 font-weight-bold">Dados da Pessoa</p>
+		    </div>
+		    <div class="card-body">
+		        
+		        <div class="form-group">
+		   			<label for="nome">Nome</label>
+		   			<span id="nome" th:text="${pessoa.nome}" class="form-control readonly"></span>
+				</div>
+				
+				<div class="form-group">
+		   			<label for="nome">Endereço</label>
+		   			<span id="nome" th:text="${pessoa.endereco}" class="form-control readonly"></span>
+				</div>
+				
+				<div class="form-group">
+		   			<label for="nome">Contato</label>
+		   			<span id="nome" th:text="${pessoa.contato}" class="form-control readonly"></span>
+				</div>
+				
+				<div class="form-group">
+		   			<label for="nome">Contato Familiar</label>
+		   			<span id="nome" th:text="${pessoa.contatoFamiliar}" class="form-control readonly"></span>
+				</div>
+				
+				<div class="form-group">
+		   			<label for="nome">E-mail</label>
+		   			<span id="nome" th:text="${pessoa.email}" class="form-control readonly"></span>
+				</div>
+				
+				<div class="form-group">
+		   			<label for="nome">CPF</label>
+		   			<span id="nome" th:text="${pessoa.cpf}" class="form-control readonly"></span>
+				</div>
+						 		
+		 		<div class="form-group">
+					<a th:href="@{/pessoas/{id}(id=${pessoa.id})}" class="btn btn-success">Editar</a>
+					<a th:href="@{/pessoas}" class="btn btn-primary">Novo</a>
+					<a th:href="@{/pessoas/list}" class="btn btn-secondary">Listar</a>	
+			 	</div>
+		        
+		    </div>
+		</div>
+    	
+    </div>
+</body>
+
+</html>

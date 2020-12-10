@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Pessoa</title>
+</head>
+
+<body>
+
+    <div layout:fragment="content">
+    	   
+	    <form th:action="@{/pessoas}" th:object="${pessoa}" method="post">
+	    	
+	    	<div th:replace="fragments/alert"></div>
+	    	
+	    	<div class="card shadow mt-3">
+			    <div class="card-header py-3">
+			        <p class="text-primary m-0 font-weight-bold">Dados da Pessoa</p>
+			    </div>
+			    <div class="card-body">
+			    
+			    	<input id="id" type="hidden" th:field="*{id}">
+			        						
+					<div class="form-group">
+		    			<label for="nome">Nome</label>
+		    			<input id="nome" type="text" th:field="*{nome}" name="nome" placeholder="Nome" class="form-control" th:classappend="${#fields.hasErrors('nome')} ? 'is-invalid'">
+		    			<div class="invalid-feedback">
+		        			<span th:errors="*{nome}"></span>
+		      			</div>
+		  			</div>
+		  			
+		  			<div class="form-group">
+		    			<label for="endereco">Endereço</label>
+		    			<input id="endereco" type="text" th:field="*{endereco}" name="endereco" placeholder="Endereço" class="form-control" th:classappend="${#fields.hasErrors('endereco')} ? 'is-invalid'">
+		    			<div class="invalid-feedback">
+		        			<span th:errors="*{endereco}"></span>
+		      			</div>
+		  			</div>
+		  			
+		  			<div class="form-group">
+		    			<label for="contato">Contato</label>
+		    			<input id="contato" type="text" th:field="*{contato}" name="contato" placeholder="Contato" class="form-control" th:classappend="${#fields.hasErrors('contato')} ? 'is-invalid'">
+		    			<div class="invalid-feedback">
+		        			<span th:errors="*{contato}"></span>
+		      			</div>
+		  			</div>
+		  			
+		  			<div class="form-group">
+		    			<label for="contatoFamiliar">Contato Familiar</label>
+		    			<input id="contatoFamiliar" type="text" th:field="*{contatoFamiliar}" name="contato" placeholder="Contato Familiar" class="form-control" th:classappend="${#fields.hasErrors('contatoFamiliar')} ? 'is-invalid'">
+		    			<div class="invalid-feedback">
+		        			<span th:errors="*{contatoFamiliar}"></span>
+		      			</div>
+		  			</div>
+		  			
+		  			<div class="form-group">
+		    			<label for="email">E-mail</label>
+		    			<input id="email" type="email" th:field="*{email}" name="email" placeholder="E-mail" class="form-control" th:classappend="${#fields.hasErrors('email')} ? 'is-invalid'">
+		    			<div class="invalid-feedback">
+		        			<span th:errors="*{email}"></span>
+		      			</div>
+		  			</div>
+		  			
+		  			<div class="form-group">
+		    			<label for="cpf">CPF</label>
+		    			<input id="cpf" type="text" th:field="*{cpf}" name="contato" placeholder="CPF" class="form-control" th:classappend="${#fields.hasErrors('cpf')} ? 'is-invalid'">
+		    			<div class="invalid-feedback">
+		        			<span th:errors="*{cpf}"></span>
+		      			</div>
+		  			</div>
+		  			
+		      		<button type="submit" name="action-salvar" class="btn btn-success">Salvar</button>
+		  			<button id="btn-modal-excluir" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalExcluir" th:if="${id} != null">
+		  				Excluir
+					</button>	
+		  			<a th:href="@{/pessoas/list}" class="btn btn-secondary">Listar</a>
+			    </div>
+			</div>
+	    	      			    
+	    </form>
+	    
+	    <form th:action="@{/pessoas/{id}(id=${idRegistro})}" th:method="delete">
+					
+			<div class="modal fade" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  				<div class="modal-dialog" role="document">
+    				<div class="modal-content">
+      					<div class="modal-header">
+        					<h5 class="modal-title" id="exampleModalLabel">Exclusão do Registro</h5>
+        					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          						<span aria-hidden="true">&times;</span>
+        					</button>
+      					</div>
+      					<div class="modal-body">
+        					Você tem certeza que deseja excluir esse registro? Esse processo é irreversível.
+      					</div>
+      					<div class="modal-footer">
+        					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        					<button type="submit" class="btn btn-danger">Excluir</button>
+      					</div>
+    				</div>
+  				</div>
+			</div>
+			
+		</form>
+    	
+    </div>
+</body>
+
+</html>

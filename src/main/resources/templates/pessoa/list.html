@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Início</title>
+    
+    <th:block layout:fragment="css">
+    	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+    </th:block>
+    
+</head>
+
+<body>
+    <div layout:fragment="content">
+    
+    		<div th:replace="fragments/alert"></div>
+    			
+    		<div class="card shadow">
+		        <div class="card-header py-3">
+            		<p class="text-primary m-0 font-weight-bold">Lista de Pessoas</p>
+		        </div>
+		        <div class="card-body">
+		   
+		            <div class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info">
+		                <table id="dataTable" class="table my-0 w-100">
+		                    <thead>
+		                        <tr>
+		                            <th class="w-85">Nome</th>
+		                            <th class="w-10">CPF</th>
+		                            <!-- <th class="w-5"></th> -->
+		                        </tr>
+		                    </thead>
+		                    <tfoot>
+		                        <tr>
+		                            <td class="w-85"><strong>Nome</strong></td>
+		                            <td class="w-10"><strong>CPF</strong></td>
+		                           <!--  <td class="w-5"></td> -->
+		                        </tr>
+		                    </tfoot>
+		                </table>
+		            </div>
+		            
+		        </div>
+		    </div>
+
+    	
+	</div>
+	
+	<div layout:fragment="scripts">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script>
+		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+		<script th:src="@{/js/pessoa/list.js}"></script>
+	</div>
+
+</body>
+
+</html>
